@@ -4,9 +4,21 @@ from django.views import View
 
 from .models import KirrURL
 # Create your views here.
+
+class HomeView(View):
+    def get(self,request, *args,**kwargs):
+        return render(request,"shortener/home.html", {}) #
+    
+    def post(self, request, *args, **kwargs):
+        print(request.POST)
+        print(request.POST.get('url'))
+        return render(request, "shortener/home.html",{})
+
+
+
+
 def test_view(request):
      return HttpResponse("some stuff")
-
 
 def kirr_redirect_view(request,shortcode=None,*args, **kwargs):
     #print(request.user)
