@@ -51,7 +51,7 @@ class KirrURL(models.Model):
         return str(self.url)
     
 
-'''
+'''  
 python manage.py makemigrations
 python manage.py migrate
 
