@@ -7,7 +7,8 @@ def validate_url(value):
     value_2_invalid = False
 
     try:
-        url_validator(value)
+        print(url_validator(value))
+        
     except:
         value_1_invalid = True
     

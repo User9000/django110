@@ -16,7 +16,7 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 
-from shortener.views import HomeView, KirrCBView
+from shortener.views import HomeView, URLRedirectView
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
@@ -24,6 +24,6 @@ urlpatterns = [
     #url(r'^my-shortcode/$', test_view),
     #url(r'^a/(?P<shortcode>[\w-]+){6,15}$', kirr_redirect_view),
     #url(r'^(?P<shortcode>[\w-]+){6,15}$', KirrCBView.as_view()),
-    url(r'^(?P<shortcode>[\w-]+)/$', KirrCBView.as_view(), name='scode'),
+    url(r'^(?P<shortcode>[\w-]+)/$', URLRedirectView.as_view(), name='scode'),
     #url(r'^(?P<shortcode>[\w-]+){6,15}$', KirrCBView.as_view()),
 ]

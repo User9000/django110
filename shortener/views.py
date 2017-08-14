@@ -1,6 +1,8 @@
-from django.http import HttpResponse,HttpResponseRedirect
+from django.http import HttpResponse,HttpResponseRedirect,Http404
 from django.shortcuts import render, get_object_or_404
 from django.views import View
+
+from analytics.models import ClickEvent
 
 from .forms import SubmitUrlForm
 from .models import KirrURL
@@ -71,21 +73,22 @@ def kirr_redirect_view(request,shortcode=None,*args, **kwargs):
     #return HttpResponse("hello {sc}".format(sc=obj.url))
 '''
 
-class KirrCBView(View):
+class URLRedirectView(View):
     def get(self, request, shortcode=None, *args, **kwargs):
-        #print(shortcode)
-        qs = KirrURL.objects.filter(shortcode=shortcode)
-        #print(qs)
+        qs = KirrURL.objects.filter(shortcode__iexact=shortcode)
+        if qs.count() != 1 and not qs.exists():
+            raise Http404
         obj = qs.first()
-        print(obj.url)
-        
-        #print("this is the shortcode",shortcode)
-        #obj = get_object_or_404(KirrURL,shortcode=shortcode)
-       
-        #print("this is the shortcode", shortcode)
-       # print(args)
-       # print(kwargs)
-        #return HttpResponse("hello again {sc}".format(sc=shortcode))
+        ClickEvent.objects.create_event(obj)
         return HttpResponseRedirect(obj.url)
-        #return 'hello'
+        
+        
+         #obj = get_object_or_404(KirrURL,shortcode=shortcode)
         #return HttpResponse("hello again {sc}".format(sc=shortcode))
+
+        #save item
+       
+
+
+        
+  
