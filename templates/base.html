@@ -7,17 +7,7 @@
             <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
     </head>
     <body>
-        <div class='container'>
-            <div class= 'text-center col-sm-12'>
-                <h1>{{ title }}</h1>
-                <form method="POST" action="."> {% csrf_token %}
-
-                <!-- <input name='url' type='text' placeholder="shorten your URL"/> -->
-                    {{ form.as_p }}
-                <input class='btn btn-primary' type='submit' value="shorten">
-                </form>
-
-            </div>
-        </div>
+        {% block content %}
+        {% endblock content %}
     </body>
 </html>
