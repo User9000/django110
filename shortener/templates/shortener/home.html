@@ -1,23 +1,18 @@
-<!DOCTYPE HTML>
-<html>
-    <head>
-        <title> Carlo.co | shorten that url </title>
+{% extends 'base.html' %}
 
-            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
-            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
-    </head>
-    <body>
-        <div class='container'>
-            <div class= 'text-center col-sm-12'>
-                <h1>{{ title }}</h1>
+{% block content %}
+
+<h1 class ="cover-heading"> {{ title }}</h1>
+<p class='lead'>Shorten that URL</p>
+<p class='lead'>
+        <div class='col-sm-6 col-sm-offset-3'>     
                 <form method="POST" action="."> {% csrf_token %}
-
                 <!-- <input name='url' type='text' placeholder="shorten your URL"/> -->
                     {{ form.as_p }}
-                <input class='btn btn-primary' type='submit' value="shorten">
+                <input class='btn btn-primary' type='submit' value="Shorten &raquo;">
                 </form>
-
             </div>
-        </div>
-    </body>
-</html>
+
+</p>
+
+{% endblock content %}

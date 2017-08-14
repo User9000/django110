@@ -1,13 +1,41 @@
 <!DOCTYPE HTML>
 <html>
     <head>
-        <title> Carlo.co | {% block title %} shorten that url {% endblock title %}</title>
+        <title> Carlo.co | {% block title %} Shorten that url {% endblock title %}</title>
 
-            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
-            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <link href="http://getbootstrap.com/docs/3.3/examples/cover/cover.css" rel="stylesheet">
+        <style> body{ background: #226268;
+                         background-image: url(https://www.resortcollection.com/wp-content/themes/resortcollection/property-images/summit/summit-beach-resort-panama-city-beach-fl-beach-01.jpg);
+
+        }
+        .btn-link {
+            color: #50dfec;
+            text-shadow: none;
+           
+        }
+        .btn-link:hover{
+            color: #000000;
+        }
+        
+        </style>
+  
     </head>
     <body>
-        {% block content %}
-        {% endblock content %}
+        <div class ='site-wrapper'>
+            <div class='site-wrapper-inner'>
+                
+                <div class='cover-container'>
+
+                    <div class='inner cover'>
+
+                            {% block content %}
+                            {% endblock content %}
+                        
+
+                    </div>
+                </div>
+            </div>
+        </div>
     </body>
 </html>
