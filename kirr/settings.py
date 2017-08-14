@@ -65,6 +65,8 @@ ROOT_URLCONF = 'kirr.urls'
 ROOT_HOSTCONF  = 'kirr.hosts'
 DEFAULT_HOST = 'www'
 DEFAULT_REDIRECT_URL ='http://www.tirr.com:8000'
+PARENT_HOST = 'tirr.com:8000'
+
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',

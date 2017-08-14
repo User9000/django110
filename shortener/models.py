@@ -4,6 +4,10 @@ from django.conf import settings
 from .utils import code_generator, create_shortcode
 from .validators import validate_url,validate_dot_com
 
+#from django.core.urlresolvers import reverse
+from django_hosts.resolvers import reverse
+
+
 SHORTCODE_MAX = getattr(settings,"SHORTCODE_MAX",15)
 #Create your models here.
 
@@ -50,6 +54,9 @@ class KirrURL(models.Model):
     def __unicode__(self):
         return str(self.url)
     
+    def get_short_url(self):
+        url_path = reverse("scode", kwargs = {"shortcode": self.shortcode}, host='www', scheme='http' )
+        return url_path
 
 '''  
 python manage.py makemigrations
