@@ -9,6 +9,7 @@ def validate_url(value):
     try:
         print(url_validator(value))
         
+        
     except:
         value_1_invalid = True
     

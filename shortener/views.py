@@ -12,11 +12,11 @@ from .models import KirrURL
 class HomeView(View):
     def get(self,request, *args,**kwargs):
         the_form = SubmitUrlForm()
+        bg_image= 'https://www.resortcollection.com/wp-content/themes/resortcollection/property-images/summit/summit-beach-resort-panama-city-beach-fl-beach-01.jpg'
         context = {
             "title":"Submit Url",
             "form":the_form,
-
-
+            "bg_image": bg_image,
         }
   
         return render(request,"shortener/home.html", context) #
