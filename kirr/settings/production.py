@@ -64,8 +64,8 @@ MIDDLEWARE = [
 ROOT_URLCONF = 'kirr.urls'
 ROOT_HOSTCONF  = 'kirr.hosts'
 DEFAULT_HOST = 'www'
-DEFAULT_REDIRECT_URL = "http://www.kirr.co" #kirr.co
-PARENT_HOST = "kirr.co"
+DEFAULT_REDIRECT_URL = "kirrtest1.herokuapp.com" #kirr.co
+PARENT_HOST = "kirrtest1.herokuapp.com"
 
 TEMPLATES = [
     {
