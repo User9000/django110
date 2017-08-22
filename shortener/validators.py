@@ -3,26 +3,33 @@ from django.core.exceptions import ValidationError
 
 def validate_url(value):
     url_validator = URLValidator()
-    value_1_invalid = False
-    value_2_invalid = False
+    value_invalid = False
+
+
+    """if "http://" in value:
+        valid_url = value
+    else:
+        valid_url = "http://" + value
+        print(valid_url)
 
     try:
-        print(url_validator(value))
-        
-        
+        url_validator(valid_url)
     except:
-        value_1_invalid = True
-    
-    value_2_url = "http://" + value
+        value_invalid = True
 
+    if value_invalid:
+            raise ValidationError("Invalid URL for this field")"""
     try:
-        url_validator(value_2_url)
+         url_validator(value)
+  
     except:
-        value_2_invalid = True
-    
-    if not value_1_invalid and not value_2_invalid:
-            raise ValidationError("Invalid URL for this field")
+        raise ValidationError("Invalid URL for this field, add correct protocol e.g http,https,ftp")
+
+    #if not "http" in value:
+       # raise ValidationError("Invalid URL for this field")
+    #print(new_value)
     return value
+
 def validate_dot_com(value):
     if not "com" in value:
         raise ValidationError("This is not valid because of no .com")

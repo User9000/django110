@@ -46,6 +46,7 @@ class KirrURL(models.Model):
     def save(self, *args, **kwargs):
         if  not self.shortcode is None or self.shortcode == "":
             self.shortcode = create_shortcode(self)
+            
             super(KirrURL,self).save(*args, **kwargs)
 
     def __str__(self):
